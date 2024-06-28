@@ -4,12 +4,14 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon, divIcon, point } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster"; 
+import UserInfo from "./Components/UserInfo";
+import tempImage from "../public/ali.jpeg";
 export default function Home() {
 
   const markers = [
     {
       geocode: [31.4100,74.2417],
-      popUp: "syed ali zia bhutto jaffery"
+      popUp: <UserInfo userName="syed ali zia jaffery"> </UserInfo>
     },
     {
       geocode:[31.4400,74.2417],
