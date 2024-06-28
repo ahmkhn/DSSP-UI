@@ -1,8 +1,22 @@
 'use client';
 import Header from "./Components/Header";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { Icon } from "leaflet";
 export default function Home() {
+
+  const markers = [
+    {
+      geocode: [31.4100,74.2417],
+      popUp: "syed ali zia bhutto jaffery"
+    }
+  ]
+
+  const customIcon = new Icon({
+    iconUrl: "https://www.reshot.com/preview-assets/icons/RM6FSKE2Y7/flag-RM6FSKE2Y7.svg",
+    iconSize: [30,30]
+  });
+
   return (
     <>
       <title>DSSP</title>
@@ -21,6 +35,18 @@ export default function Home() {
                 maxZoom={20}
                 subdomains={["mt0", "mt1", "mt2", "mt3"]}
                 />*/
+
+
+                // map through markers
+                {markers.map(marker=>(
+                  <Marker position={marker.geocode} icon={customIcon}>
+                    <Popup>
+                      {marker.popUp}
+                    </Popup>
+                  </Marker>
+                ))}
+
+
           </MapContainer>
         </div>
         <div>
